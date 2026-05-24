@@ -1,0 +1,318 @@
+.signup-page {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding: 72px 32px 36px;
+  background: #050505;
+  color: white;
+  user-select: none;
+}
+
+.signup-shell {
+  display: flex;
+  width: min(100%, 420px);
+  flex: 1;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.signup-progress {
+  height: 4px;
+  overflow: hidden;
+  margin-bottom: 48px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.signup-progress-bar {
+  height: 100%;
+  background: var(--brand-neon);
+  transition: width 0.45s ease;
+}
+
+.signup-step {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  animation: fade-in 0.35s ease-out both;
+}
+
+.signup-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.signup-title {
+  margin: 0;
+  color: white;
+  font-size: 30px;
+  font-weight: 950;
+  line-height: 1.18;
+}
+
+.signup-copy {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.field-stack,
+.goal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-shell {
+  position: relative;
+}
+
+.input-shell svg {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-50%);
+}
+
+.text-input {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  outline: none;
+  background: var(--panel-soft);
+  color: white;
+  font-size: 14px;
+  transition: border-color 0.18s ease;
+}
+
+.text-input:focus {
+  border-color: var(--brand-neon);
+}
+
+.primary-button,
+.secondary-button,
+.link-button,
+.back-button {
+  cursor: pointer;
+}
+
+.primary-button {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--brand-neon);
+  color: #050505;
+  font-weight: 950;
+  box-shadow: 0 12px 28px rgba(127, 255, 0, 0.16);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.primary-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.back-button,
+.link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.link-button {
+  align-self: center;
+  text-decoration: underline;
+}
+
+.biometric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.number-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: var(--panel-soft);
+}
+
+.number-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: white;
+  font-size: 26px;
+  font-weight: 950;
+}
+
+.sync-panel {
+  position: relative;
+  overflow: hidden;
+  padding: 30px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 26px;
+  background: var(--panel-soft);
+  text-align: center;
+}
+
+.sync-panel .card-glow {
+  width: 128px;
+  height: 128px;
+}
+
+.sync-icon {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--brand-neon);
+}
+
+.sync-panel h4 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.sync-panel p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 24px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.secondary-button {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 13px;
+  border-radius: 13px;
+  background: white;
+  color: #050505;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.goal-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  padding: 22px;
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  background: var(--panel-soft);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.goal-card.selected {
+  border-color: var(--brand-neon);
+  background: rgba(127, 255, 0, 0.06);
+  color: white;
+}
+
+.goal-copy {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.goal-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--text-faint);
+}
+
+.goal-card.selected .goal-icon {
+  background: rgba(127, 255, 0, 0.16);
+  color: var(--brand-neon);
+}
+
+.goal-label {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.success-step {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  text-align: center;
+  animation: fade-in 0.35s ease-out both;
+}
+
+.success-icon {
+  display: inline-flex;
+  width: 96px;
+  height: 96px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--brand-neon);
+  color: #050505;
+  box-shadow: 0 0 40px rgba(127, 255, 0, 0.28);
+}
+
+.success-step h2 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  font-weight: 950;
+}
+
+.success-step p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 380px) {
+  .signup-page {
+    padding-inline: 22px;
+  }
+
+  .biometric-grid {
+    grid-template-columns: 1fr;
+  }
+}

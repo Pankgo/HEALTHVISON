@@ -1,0 +1,265 @@
+.scanner-page {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 24px 28px;
+  user-select: none;
+}
+
+.scanner-title {
+  flex: 0 0 auto;
+}
+
+.scanner-stage {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.viewfinder {
+  position: relative;
+  display: flex;
+  width: min(100%, 312px);
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--panel-border);
+  border-radius: 30px;
+  background: #000;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
+}
+
+.viewfinder-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.corner-guide {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--brand-neon);
+}
+
+.corner-guide.top-left {
+  top: 20px;
+  left: 20px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.corner-guide.top-right {
+  top: 20px;
+  right: 20px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.corner-guide.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.corner-guide.bottom-right {
+  right: 20px;
+  bottom: 20px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 2px;
+  background: var(--brand-neon);
+  box-shadow: 0 0 15px var(--brand-neon);
+  animation: scan-laser 2.2s infinite ease-in-out;
+}
+
+.scanner-feedback {
+  display: flex;
+  width: min(100%, 312px);
+  min-height: 74px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.scan-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--brand-neon);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.result-card {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  background: var(--panel-soft);
+  animation: fade-in 0.35s ease-out both;
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.result-menu {
+  color: var(--text-strong);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.result-kcal {
+  color: var(--brand-neon);
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 950;
+}
+
+.scanner-help {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.scanner-controls {
+  flex: 0 0 auto;
+  padding-top: 12px;
+}
+
+.control-row {
+  display: flex;
+  width: min(100%, 292px);
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.control-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  color: var(--text-faint);
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.control-button:active {
+  transform: scale(0.92);
+}
+
+.control-icon {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: var(--panel-soft);
+}
+
+.control-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.shutter {
+  display: flex;
+  width: 72px;
+  height: 72px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 4px solid rgba(127, 255, 0, 0.2);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.shutter.reset {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.shutter:active {
+  transform: scale(0.95);
+}
+
+.shutter-core {
+  display: flex;
+  width: 56px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #fff;
+  color: #050505;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.shutter.reset .shutter-core {
+  background: var(--danger);
+  color: white;
+}
+
+.shutter-ring {
+  width: 85%;
+  height: 85%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: inherit;
+}
+
+@keyframes scan-laser {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
