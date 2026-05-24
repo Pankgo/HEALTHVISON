@@ -1,73 +1,89 @@
-# React + TypeScript + Vite
+# HealthVision
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Vision AI 기반 건강 관리 모바일 웹 앱 프로토타입입니다. 음식 촬영 흐름, 영양 분석 결과, 개인화 추천, 인바디 기반 통계와 프로필 화면을 한 앱 흐름으로 구성했습니다.
 
-Currently, two official plugins are available:
+## 주요 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 홈 대시보드: 오늘의 칼로리 섭취량과 AI 건강 인사이트 요약
+- 푸드 렌즈: 카메라 기반 음식 촬영 UI와 분석 결과 카드
+- AI 추천: 인바디 데이터 컨셉을 반영한 식단 및 운동 추천
+- 통계: 주간 칼로리 추세와 체성분 변화 리포트
+- 내정보: 인바디 연동 상태, 최근 신체 지표, 측정 히스토리
+- 회원가입: 계정 생성, 신체 정보 입력, 인바디 연동, 목표 설정 흐름
 
-## React Compiler
+## 기술 스택
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- TypeScript
+- Vite
+- React Router
+- Tailwind CSS v4
+- Lucide React Icons
 
-## Expanding the ESLint configuration
+## 실행 방법
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+개발 서버가 실행되면 브라우저에서 안내되는 로컬 주소로 접속합니다.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 빌드
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
 ```
+
+## 린트
+
+```bash
+npm run lint
+```
+
+## 프로젝트 구조
+
+```text
+src/
+  App.tsx
+  main.tsx
+  index.css
+  pages/
+    components/
+      footer.tsx
+      header.tsx
+      layout.tsx
+    view/
+      mainView.tsx
+      myProfile.tsx
+      recommend.tsx
+      review.tsx
+      signUp.tsx
+      statistics.tsx
+  styles/
+    app.css
+    auth.css
+    pages.css
+    scanner.css
+```
+
+## 화면 흐름
+
+```text
+홈
+  -> AI 추천
+  -> 푸드 렌즈
+  -> 통계
+  -> 내정보
+
+회원가입
+  -> 계정 정보
+  -> 신체 정보
+  -> 인바디 연동
+  -> 목표 설정
+  -> 홈 대시보드
+```
+
+## 참고
+
+현재 앱은 프론트엔드 프로토타입이며, 카메라 촬영과 AI 분석 결과는 데모 흐름으로 구성되어 있습니다. 실제 AI 분석 API, 사용자 인증, 인바디 API 연동은 추후 백엔드와 연결할 수 있도록 화면 흐름 중심으로 설계했습니다.
